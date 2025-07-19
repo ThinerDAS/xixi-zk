@@ -1,0 +1,33 @@
+[package]
+name = "xixi_verifier"
+version = "0.1.0"
+edition = "2021"
+
+# Set optimization level for release builds
+[profile.release]
+# hand tuned, partly following risc0 doc
+# opt-level: 3 seems still better in current setup
+# "z" obviously make exec time longer
+opt-level = 3
+# lto = thin optimize somewhat
+lto = "thin"
+# codegen-units : trade compilation time for performance
+codegen-units = 1
+
+# debug = 1 keeps inline function info
+# when you profile, enable it
+#debug = 1
+
+[workspace]
+
+[dependencies]
+anyhow = "1.0"
+hex = "0.4"
+# in product environment we probably need to pin the risc0-zkvm package version strictly
+# risc0-zkvm version roll so quickly
+risc0-zkvm = { version = "2.3.1", default-features = false, features = ['std'] }
+serde = "1.0"
+serde_json = "1.0"
+sha2 = { git = "https://github.com/risc0/RustCrypto-hashes", tag = "sha2-v0.10.8-risczero.0" }
+xixi-core = { path = "../../core" }
+rkyv = { version = "0.7", features = ["std", "validation"] }
