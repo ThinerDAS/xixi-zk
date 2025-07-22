@@ -205,7 +205,11 @@ Error: verification indicates proof is invalid
 
 # Reproducibility test
 
-(Update : moved `core` folder inside `guest` so that file difference in building environment is minimize)
+I have moved `core` folder inside `guest` so that file difference in building environment is minimized.
+
+From now on the guest image file should be stable and reproducible and hardly change even when other code change.
+
+You can build yourself and compare your image ID with the following value:
 
 ```
 $ r0vm --id --elf xixi_verifier.bin
