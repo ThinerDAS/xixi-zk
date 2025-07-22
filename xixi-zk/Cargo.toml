@@ -1,11 +1,17 @@
 [workspace]
 resolver = "2"
-members = ["host", "methods", "core"]
+members = ["host", "methods", "methods/guest/core"]
 
 # Always optimize; building and running the guest takes much longer without optimization.
 [profile.dev]
-opt-level = 3
+# (..) for vm 2.0 is it really needed for great optimization?
+# (..) running the guest is done by r0vm, not host. host optimization contribute nothing to performance
+#opt-level = 3
+opt-level = 1
 
 [profile.release]
 debug = 1
-lto = true
+# (..) for vm 2.0 is it really needed for great optimization?
+opt-level = 1
+# (..) let lto be off to accelerate compilation - guest will not be affected
+#lto = true

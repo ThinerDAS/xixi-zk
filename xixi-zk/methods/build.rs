@@ -11,7 +11,12 @@ fn main() {
             .expect("Failed to create guest options"),
         _ => {
             let docker_options = DockerOptionsBuilder::default()
-                .root_dir("../../")
+                // .root_dir("../../") // will it cause binary difference if root_dir differs?
+                // root at '.' does not work now because core lib is guest dependency
+                // when we want guest to be independent on host, core is required to be considered
+                //.root_dir("../")
+                //
+                .root_dir("guest/")
                 .build()
                 .expect("Failed to create docker options");
                 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motadata Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="text-center">Motadata Map Visualizer</h1>
+    
+    <div class="container">
+        <div id="map-container">
+            <div id="layer-controls" class="mb-3">
+                <label for="layer-select">Select Floor (Z): </label>
+                <select id="layer-select"></select>
+            </div>
+            <div id="map-canvas"></div>
+        </div>
+        
+        <div id="info-panel">
+            <div class="card">
+                <div class="card-header">Node Information</div>
+                <div class="card-body" id="node-info">
+                    <p>Hover over a node to see details</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Game Data</div>
+                <div class="card-body">
+                    <div class="tabs">
+                        <div class="tab active" data-target="init-stat">Initial Stats</div>
+                        <div class="tab" data-target="levelup-desc">Level Up</div>
+                        <div class="tab" data-target="enemy-data">Enemies</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="init-stat">
+                        <table id="init-stat-table"></table>
+                    </div>
+                    <div class="tab-content" id="levelup-desc">
+                        <table id="levelup-desc-table"></table>
+                    </div>
+                    <div class="tab-content" id="enemy-data">
+                        <table id="enemy-data-table"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data_loader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
