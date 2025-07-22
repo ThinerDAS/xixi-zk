@@ -12,5 +12,5 @@ Also rust 1.88 is stable version at current but may be changed, which might hurt
 
 ## later todo
 
-(1) generate route txt from h5route
+(1) generate route txt from h5route (completed)
 (2) in general convert game map and game setup into risc0
